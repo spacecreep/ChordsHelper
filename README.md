@@ -1,3 +1,3 @@
-# A basic python tkinter application for generating random chords
+# Chords Helper
 
-....
+A basic tkinter app for displaying chords
