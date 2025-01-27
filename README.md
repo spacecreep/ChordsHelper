@@ -1,1 +1,3 @@
-A basic python tkinter application for generating random chords
+# A basic python tkinter application for generating random chords
+
+....
