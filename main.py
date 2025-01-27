@@ -1,6 +1,7 @@
 import customtkinter as ctk
 from chords import generate_chord, CHROMATIC_SCALE, CHORD_TYPES
 import pygame  # For sound playback
+from PIL import Image  # For loading images
 import random
 import time
 
@@ -89,6 +90,18 @@ class ChordApp(ctk.CTk):
         )
         self.volume_slider.set(0.5)  # Default volume
         self.volume_slider.place(x=self.piano_frame.winfo_rootx() + 10, y=self.piano_frame.winfo_rooty())  # Position slider next to piano
+
+        # Load volume icon
+        volume_icon_path = "Images/volume.png"  # Path to your icon
+        volume_icon = ctk.CTkImage(
+            light_image=Image.open(volume_icon_path),
+            dark_image=Image.open(volume_icon_path),
+            size=(window_height * 0.05,window_height * 0.05)  # Resize to a suitable size
+        )
+
+        # Add volume icon label
+        self.volume_icon_label = ctk.CTkLabel(self, image=volume_icon, text="")
+        self.volume_icon_label.place(x=self.volume_slider.winfo_rootx(), y=self.volume_slider.winfo_rooty() + self.volume_slider.winfo_height())
 
         # Play chord button
         self.play_chord_button = ctk.CTkButton(
